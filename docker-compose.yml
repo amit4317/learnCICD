@@ -1,0 +1,9 @@
+services:
+  api:
+    image: api-service:${IMAGE_TAG:-latest}
+    container_name: api-service
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+    ports:
+      - "127.0.0.1:3001:3000"  # expose only locally; Nginx proxies
