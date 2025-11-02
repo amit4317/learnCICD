@@ -41,7 +41,7 @@ pipeline {
           set -e
           cd ${COMPOSE_DIR}
           sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=${IMAGE_TAG}/" .env || echo "IMAGE_TAG=${IMAGE_TAG}" > .env
-          docker compose up -d
+          docker compose up -d --force-recreate
           docker image prune -f
         '''
       }
