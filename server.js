@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get("/health", (req, res) => res.json({ ok: true }));
 app.get("/", (req, res) => res.json({ service: "api", time: new Date().toISOString() }));
-app.get("/amit", (req, res) => ({
+app.get("/amit", (req, res) => {
 
        res.json({
        
@@ -15,5 +15,5 @@ app.get("/amit", (req, res) => ({
             
        })
     
-}))
+})
 app.listen(PORT, () => console.log(`API listening on ${PORT}`));
