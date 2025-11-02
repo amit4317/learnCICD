@@ -19,9 +19,8 @@ pipeline {
             else
               npm install
             fi
-
-            # If you don't have tests yet, ensure package.json has a test script
-            # e.g. \\"test\\": \\"node -e 'process.exit(0)'\\"  (otherwise npm test may fail)
+            # make sure your package.json has a 'test' script; if not, add a no-op:
+            #   \"test\": \"node -e \\\"process.exit(0)\\\"\"
             npm test
           "
         '''
