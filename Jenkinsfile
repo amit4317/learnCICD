@@ -18,8 +18,9 @@ pipeline {
     stage('Build'){
       steps {
         sh '''
-          docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .
-          docker images | head -n 5
+          docker run --rm -v "$PWD":/app -w /app node:20 \
+          bash -lc "npm install && npm test"
+
         '''
       }
     }
