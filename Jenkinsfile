@@ -11,18 +11,16 @@ pipeline {
 
     stage('Test'){
       steps {
+        // Keep quoting simple: run everything inside the container with /bin/sh -lc
         sh '''
-          docker run --rm -v "$PWD":/app -w /app node:20 bash -lc "
-            set -e
+          docker run --rm -v "$PWD":/app -w /app node:20 sh -lc '
             if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
               npm ci
             else
               npm install
             fi
-            # make sure your package.json has a 'test' script; if not, add a no-op:
-            #   \"test\": \"node -e \\\"process.exit(0)\\\"\"
             npm test
-          "
+          '
         '''
       }
     }
