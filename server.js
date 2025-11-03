@@ -9,7 +9,7 @@ app.get("/amit", (req, res) => res.json({
            createdby: 'meAmit',
            createdOn: '02-Nov-2025',
            reason: 'farmershop pipeline was failing' ,
-           server_bot: 'brrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'
+           server_bot: 'nice things takes time'
        })
     
 )
